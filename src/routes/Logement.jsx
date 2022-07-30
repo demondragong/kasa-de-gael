@@ -1,5 +1,9 @@
+import { useParams } from "react-router-dom"
+
+
 export default function Logement() {
+    let params = useParams();
     return (
-        "Welcome logeme"
+        <h1>Je suis logement {params.logementId}</h1>
     )
 }
