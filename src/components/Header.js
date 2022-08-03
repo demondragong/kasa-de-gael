@@ -1,13 +1,13 @@
 import logo from '../assets/logo.svg'
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 export default function Header() {
     return (
         <header>
             <img src={logo} alt="Kasa logo"/>
             <nav>
-                <Link to="/">Accueil</Link>
-                <Link to="/a-propos">A propos</Link>
+                <NavLink to="/">Accueil</NavLink>
+                <NavLink to="/a-propos">A propos</NavLink>
             </nav>
         </header>
     )

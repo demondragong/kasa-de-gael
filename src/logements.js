@@ -621,3 +621,7 @@ let logements = [
 export function getLogements() {
 	return logements;
 }
+
+export function getLogement(id) {
+	return logements.find(logement => logement.id === id);
+}
