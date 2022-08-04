@@ -1,20 +1,36 @@
 import { useParams } from "react-router-dom"
 import { Navigate } from "react-router-dom";
+import Carrousel from "../components/Carrousel";
+import Dropdown from "../components/Dropdown";
+import HostProfile from "../components/HostProfile";
+import StarRating from "../components/StarRating";
+import Tag from "../components/Tag";
 import { getLogement } from "../logements";
 
 
 export default function Logement() {
     let params = useParams();
     let logement = getLogement(params.logementId);
+
+    let equipmentList = <ul>
+                        {logement.equipments.map(e => <li>{e}</li>)}
+                        </ul>
     
     // generate logement page if it was found in the data, otherwise navigate to error page 
     if(logement) {
         return (
-            <div>
-                <img src={logement.cover} alt="lobby of the apartment"/>
-                <h1>{logement.title}</h1>
-                <p>{logement.description}</p>
-            </div>
+            <main className="main">
+                <Carrousel pictures={logement.pictures} />
+                <h1 className="logement-title">{logement.title}</h1>
+                <p className="logement-location">{logement.location}</p>
+                {logement.tags.map(tag => ( <Tag name={tag}/>))}
+                <div className="logement-rating-host">
+                    <StarRating score={logement.rating} />
+                    <HostProfile name={logement.host.name} picture={logement.host.picture} />
+                </div>
+                <Dropdown title="Description" content={logement.description} />
+                <Dropdown title="Équipements" content={equipmentList} />
+            </main>
         )
     } else {
         return (

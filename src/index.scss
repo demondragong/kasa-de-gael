@@ -1,0 +1,278 @@
+// || utils
+
+$kasa-red: #FF6060;
+$kasa-light-grey: #F6F6F6;
+
+$font-fam: 'Montserrat', sans-serif;
+
+$normal: 400;
+$semibold: 500;
+$bold: 700;
+
+@mixin for-phone-only {
+    @media (max-width: 599px) { @content; }
+}
+@mixin for-tablet-portrait-up {
+    @media (min-width: 600px) { @content; }
+}
+@mixin for-desktop-up {
+    @media (min-width: 1200px) { @content; }
+}
+
+
+// || base
+
+body {
+  color: $kasa-red;
+  margin: auto;
+  margin-top: 40px;
+  font-family: $font-fam;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: $kasa-red;
+}
+
+
+.header {
+  margin: 20px;
+  max-width: 1240px;
+  @include for-tablet-portrait-up {
+    margin: auto;
+  }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  &__nav {
+    display: flex;
+    gap: 10px;
+    @include for-tablet-portrait-up {
+      gap: 57px;
+    }
+  }
+  &__navlink {
+    font-size: 0.8rem;
+    font-weight: $semibold;
+    color : #FF6060;
+    text-decoration: none;
+    text-transform: uppercase;
+    @include for-tablet-portrait-up {
+      text-transform: unset;
+      font-size: 1.5rem;
+    }
+  }
+}
+
+.footer {
+  height: 209px;
+  width: 100%;
+  font-size: 0.8rem;
+  @include for-tablet-portrait-up {
+    font-size: 1.5rem;
+  }
+  font-weight: $semibold;
+  color: white;
+  background: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.main {
+  margin: 20px;
+  max-width: 1240px;
+  @include for-tablet-portrait-up {
+    margin: auto;
+  }
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.banner {
+  position: relative;
+  height: 223px;
+  overflow: hidden;
+  background: #000000;
+  margin-block: 16px 22px;
+  border-radius: 10px;
+  @include for-tablet-portrait-up {
+    margin-block: 63px 43px;  
+    border-radius: 25px;
+  }
+  &__image {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    opacity: 0.5;
+    object-fit: cover;
+  }
+  &__text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width:100%;
+    display: flex;
+    justify-content: center;
+    color: white;
+    font-weight: $semibold;
+    font-size: 1.5rem;
+    @include for-tablet-portrait-up {
+      font-size: 3rem;
+    }
+  }
+}
+
+
+.gallery {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+  @include for-tablet-portrait-up {
+    background: $kasa-light-grey;
+    border-radius: 25px;
+    padding: 50px;
+    gap: 50px;
+  }
+}
+
+.thumbnail {
+  position: relative;
+  &__image {
+    border-radius: 10px;
+    width: 100%;
+  }
+  &__title {
+    position: absolute;
+    bottom: 15px;
+    left: 20px;
+    color: white;
+    font-size: 1.15rem;
+    font-weight: $semibold;
+  }
+}
+
+.dropdown {
+  margin-top: 20px;
+  @include for-tablet-portrait-up {
+    width: 80%;
+    margin: 30px auto;
+  }
+  &__title {
+    background: $kasa-red;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: $semibold;
+    padding: 6px 10px;
+    border-radius: 5px;
+    @include for-tablet-portrait-up {
+      font-size: 1.5rem;
+      padding: 6px 18px;
+    }
+  }
+  &__content {
+    background: $kasa-light-grey;
+    color: $kasa-red;
+    font-size: 0.75rem;
+    padding: 10px 10px;
+    border-radius: 5px;
+    line-height: 1.1rem;
+    @include for-tablet-portrait-up {
+      font-size: 1.5rem;
+      padding: 18px 18px;
+      line-height: 2rem;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+  }
+}
+
+.error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  &__title {
+    font-size: 6rem;
+    font-weight: $bold;
+    margin-top: 6rem;
+    margin-bottom: 11px;
+    @include for-tablet-portrait-up {
+      font-size: 18rem;
+    }
+  }
+  &__detail {
+    margin-top: 0px;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: $semibold;
+    @include for-tablet-portrait-up {
+      font-size: 2rem;
+    }
+  }
+  &__link-home {
+    margin-block: 133px;
+    font-size: 1rem;
+    font-weight: $semibold;
+    @include for-tablet-portrait-up {
+      font-size: 1.15rem;
+    }
+  }
+}
+
+
+.logement-title {
+  font-size: 1.1rem;
+  font-weight: $semibold;
+}
+
+.logement-location {
+  font-size: 0.9rem;
+  font-weight: $semibold;
+}
+
+.tag {
+  font-size: 0.8rem;
+  display: inline-block;
+  background: $kasa-red;
+  color: white;
+  border-radius: 5px;
+  padding: 5px 30px;
+  margin: 0 10px 10px 0;
+}
+
+.logement-rating-host {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.host {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  &__name {
+    font-size: 0.9rem;
+    font-weight: $semibold;
+  }
+  &__picture {
+    width: 2rem;
+    border-radius: 50%;
+  }
+}
+
+.carrousel {
+  width: 100%;
+  border-radius: 10px;
+
+}
+
+

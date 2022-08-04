@@ -1,18 +1,16 @@
-import { Link } from "react-router-dom";
 import { getLogements } from "../logements";
+import Thumbnail from "./Thumbnail";
  
 
 export default function Gallery() {
     let logements = getLogements();
     return (
-        <div>
+        <div className="gallery">
             {logements.map(logement => (
-                <Link
-                    to={`logement-${logement.id}`}
+                <Thumbnail 
+                    logement={logement}
                     key={logement.id}
-                >
-                    {logement.title}
-                </Link>
+                    />
             ))}
         </div>
     )
