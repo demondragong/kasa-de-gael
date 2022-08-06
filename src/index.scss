@@ -1,24 +1,30 @@
 // || utils
 
-$kasa-red: #FF6060;
-$kasa-light-grey: #F6F6F6;
+$kasa-red: #ff6060;
+$kasa-light-grey: #f6f6f6;
+$star-grey: #e3e3e3;
 
-$font-fam: 'Montserrat', sans-serif;
+$font-fam: "Montserrat", sans-serif;
 
 $normal: 400;
 $semibold: 500;
 $bold: 700;
 
 @mixin for-phone-only {
-    @media (max-width: 599px) { @content; }
+  @media (max-width: 599px) {
+    @content;
+  }
 }
 @mixin for-tablet-portrait-up {
-    @media (min-width: 600px) { @content; }
+  @media (min-width: 600px) {
+    @content;
+  }
 }
 @mixin for-desktop-up {
-    @media (min-width: 1200px) { @content; }
+  @media (min-width: 1200px) {
+    @content;
+  }
 }
-
 
 // || base
 
@@ -34,7 +40,6 @@ body {
 a {
   color: $kasa-red;
 }
-
 
 .header {
   margin: 20px;
@@ -55,7 +60,7 @@ a {
   &__navlink {
     font-size: 0.8rem;
     font-weight: $semibold;
-    color : #FF6060;
+    color: #ff6060;
     text-decoration: none;
     text-transform: uppercase;
     @include for-tablet-portrait-up {
@@ -102,7 +107,7 @@ a {
   margin-block: 16px 22px;
   border-radius: 10px;
   @include for-tablet-portrait-up {
-    margin-block: 63px 43px;  
+    margin-block: 63px 43px;
     border-radius: 25px;
   }
   &__image {
@@ -116,7 +121,7 @@ a {
     position: absolute;
     top: 0;
     left: 0;
-    width:100%;
+    width: 100%;
     display: flex;
     justify-content: center;
     color: white;
@@ -127,7 +132,6 @@ a {
     }
   }
 }
-
 
 .gallery {
   display: flex;
@@ -171,6 +175,8 @@ a {
     font-weight: $semibold;
     padding: 6px 10px;
     border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
     @include for-tablet-portrait-up {
       font-size: 1.5rem;
       padding: 6px 18px;
@@ -194,6 +200,18 @@ a {
       margin: 0;
     }
   }
+}
+
+.arrow-up {
+  transform: rotate(-90deg);
+}
+
+.arrow-down {
+  transform: rotate(90deg);
+}
+
+.hidden {
+  display: none;
 }
 
 .error {
@@ -228,7 +246,6 @@ a {
   }
 }
 
-
 .logement-title {
   font-size: 1.1rem;
   font-weight: $semibold;
@@ -255,6 +272,10 @@ a {
   align-items: center;
 }
 
+.grey {
+  color: $star-grey;
+}
+
 .host {
   display: flex;
   align-items: center;
@@ -270,9 +291,21 @@ a {
 }
 
 .carrousel {
-  width: 100%;
+  position: relative;
+  height: 255px;
   border-radius: 10px;
-
+  overflow: hidden;
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  &__controls {
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
 }
-
-
