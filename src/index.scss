@@ -102,8 +102,12 @@ a {
 .banner {
   position: relative;
   height: 223px;
+  &--home {
+    @include for-phone-only() {
+      height: 111px;
+    }
+  }
   overflow: hidden;
-  background: #000000;
   margin-block: 16px 22px;
   border-radius: 10px;
   @include for-tablet-portrait-up {
@@ -111,22 +115,24 @@ a {
     border-radius: 25px;
   }
   &__image {
-    position: absolute;
     height: 100%;
     width: 100%;
-    opacity: 0.5;
     object-fit: cover;
+    filter: brightness(0.6);
   }
-  &__text {
+  &__text-overlay {
+    padding: 16px;
     position: absolute;
     top: 0;
     left: 0;
+    height: 100%;
     width: 100%;
-    display: flex;
-    justify-content: center;
     color: white;
     font-weight: $semibold;
     font-size: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     @include for-tablet-portrait-up {
       font-size: 3rem;
     }
@@ -148,17 +154,35 @@ a {
 
 .thumbnail {
   position: relative;
+  overflow: hidden;
+  width: 335px;
+  height: 255px;
+  @include for-tablet-portrait-up() {
+    width: 340px;
+    height: 340px;
+  }
   &__image {
     border-radius: 10px;
     width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
-  &__title {
+  &__title-overlay {
     position: absolute;
-    bottom: 15px;
-    left: 20px;
     color: white;
     font-size: 1.15rem;
     font-weight: $semibold;
+    margin: 0;
+    padding: 16px;
+    vertical-align: bottom;
+    border-radius: 10px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
+    display: flex;
+    align-items: flex-end;
   }
 }
 

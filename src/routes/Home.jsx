@@ -5,7 +5,7 @@ import image from "../assets/banner_background.jpg";
 export default function Home() {
   return (
     <main className="main">
-      <Banner image={image} text="Chez vous, partout et ailleurs" />
+      <Banner location="home" image={image} text="Chez vous, partout et ailleurs" />
       <Gallery />
     </main>
   );

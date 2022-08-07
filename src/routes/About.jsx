@@ -6,7 +6,7 @@ export default function About() {
   return (
     <>
       <main className="main">
-        <Banner image={image} />
+        <Banner location="about" image={image} />
         <Dropdown
           title="Fiabilité"
           content="Les annonces postées sur Kasa garantissent une fiabilité totale. Les photos sont conformes aux logements, et toutes les informations sont régulièrement vérifiées  par nos équipes."
