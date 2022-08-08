@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Navigate } from "react-router-dom";
 import Carrousel from "../components/Carrousel";
@@ -22,6 +23,11 @@ export default function Logement() {
       </ul>
     );
   }
+
+  useEffect(() => {
+    document.title = logement ? logement.title : "nope";
+  });
+
   // generate logement page if it was found in the data, otherwise navigate to error page
   return logement ? (
     <main className="main">

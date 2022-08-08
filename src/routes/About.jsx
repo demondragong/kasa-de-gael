@@ -1,8 +1,12 @@
 import Banner from "../components/Banner";
 import image from "../assets/kalen-emsley-Bkci_8qcdvQ-unsplash.jpg";
 import Dropdown from "../components/Dropdown";
+import { useEffect } from "react";
 
 export default function About() {
+  useEffect(() => {
+    document.title = 'A propos de Kasa';
+  });
   return (
     <>
       <main className="main">

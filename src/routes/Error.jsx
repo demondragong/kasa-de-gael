@@ -1,6 +1,10 @@
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 export default function Error() {
+  useEffect(() => {
+    document.title = 'Page non trouvée - Kasa';
+  });
   return (
     <main className="main error">
       <h1 className="error__title">404</h1>
