@@ -5,12 +5,12 @@ export default function StarRating({ score }) {
   return (
     <div className="star-rating">
       {redStars.map((e, i) => (
-        <span className="red" key={`redStar${i}`}>
+        <span className="star star--red" key={`redStar${i}`}>
           ★
         </span>
       ))}
       {greyStars.map((e, i) => (
-        <span className="grey" key={`greyStar${i}`}>
+        <span className="star star--grey" key={`greyStar${i}`}>
           ★
         </span>
       ))}

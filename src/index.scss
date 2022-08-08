@@ -21,12 +21,12 @@ $bold: 700;
   }
 }
 @mixin for-desktop-up {
-  @media (min-width: 1200px) {
+  @media (min-width: 1280px) {
     @content;
   }
 }
 
-// || base
+// || base - used on many pages
 
 body {
   color: $kasa-red;
@@ -44,7 +44,7 @@ a {
 .header {
   margin: 20px;
   max-width: 1240px;
-  @include for-tablet-portrait-up {
+  @include for-desktop-up() {
     margin: auto;
   }
   display: flex;
@@ -90,8 +90,8 @@ a {
 .main {
   margin: 20px;
   max-width: 1240px;
-  @include for-tablet-portrait-up {
-    margin: auto;
+  @include for-desktop-up() {
+    margin: 25px auto;
   }
 }
 
@@ -138,6 +138,69 @@ a {
     }
   }
 }
+
+.dropdown {
+  margin-top: 20px;
+  @include for-tablet-portrait-up {
+    width: 80%;
+    margin: 30px auto;
+  }
+  &__title {
+    background: $kasa-red;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: $semibold;
+    padding: 6px 10px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @include for-tablet-portrait-up {
+      font-size: 1.5rem;
+      padding: 6px 18px;
+      border-radius: 10px;
+    }
+  }
+  &__content {
+    background: $kasa-light-grey;
+    color: $kasa-red;
+    font-size: 0.75rem;
+    padding: 10px 10px;
+    border-radius: 5px;
+    line-height: 1.1rem;
+    @include for-tablet-portrait-up {
+      font-size: 1.5rem;
+      padding: 18px 18px;
+      line-height: 2rem;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+  }
+}
+
+.arrow-up {
+  transform: rotate(-90deg);
+  @include for-tablet-portrait-up() {
+    transform: rotate(-90deg) scale(1.8);
+  }
+}
+
+.arrow-down {
+  transform: rotate(90deg);
+  @include for-tablet-portrait-up() {
+    transform: rotate(90deg) scale(1.8);
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+
+// || Home page
 
 .gallery {
   display: flex;
@@ -186,57 +249,138 @@ a {
   }
 }
 
-.dropdown {
-  margin-top: 20px;
-  @include for-tablet-portrait-up {
-    width: 80%;
-    margin: 30px auto;
+
+
+// || Logement page
+
+.carrousel {
+  position: relative;
+  height: 255px;
+  @include for-desktop-up() {
+    height: 415px;
   }
-  &__title {
-    background: $kasa-red;
-    color: white;
-    font-size: 0.8rem;
-    font-weight: $semibold;
-    padding: 6px 10px;
-    border-radius: 5px;
+  border-radius: 10px;
+  overflow: hidden;
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  &__controls {
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    width: 100%;
     display: flex;
     justify-content: space-between;
-    @include for-tablet-portrait-up {
-      font-size: 1.5rem;
-      padding: 6px 18px;
-    }
-  }
-  &__content {
-    background: $kasa-light-grey;
-    color: $kasa-red;
-    font-size: 0.75rem;
-    padding: 10px 10px;
-    border-radius: 5px;
-    line-height: 1.1rem;
-    @include for-tablet-portrait-up {
-      font-size: 1.5rem;
-      padding: 18px 18px;
-      line-height: 2rem;
-    }
-    ul {
-      list-style-type: none;
-      padding: 0;
-      margin: 0;
+    img {
+      margin: 10px;
+      @include for-tablet-portrait-up() {
+        transform: scale(4);
+        margin-inline: 32px;
+      }
     }
   }
 }
 
-.arrow-up {
-  transform: rotate(-90deg);
+
+
+.logement-title {
+  font-size: 1.1rem;
+  font-weight: $semibold;
+  @include for-tablet-portrait-up() {
+    font-size: 2.1rem;
+  }
 }
 
-.arrow-down {
-  transform: rotate(90deg);
+.logement-location {
+  font-size: 0.9rem;
+  font-weight: $semibold;
+  @include for-tablet-portrait-up() {
+    font-size: 1.1rem;
+  }
 }
 
-.hidden {
-  display: none;
+.tag {
+  font-size: 0.8rem;
+  display: inline-block;
+  background: $kasa-red;
+  color: white;
+  border-radius: 5px;
+  padding: 5px 30px;
+  margin: 0 10px 10px 0;
+  @include for-tablet-portrait-up() {
+    font-size: 1rem;
+    border-radius: 10px;
+  }
 }
+
+.logement-info {
+  display: flex;
+  flex-direction: column;
+  @include for-tablet-portrait-up() {
+    flex-direction: unset;
+    justify-content: space-between;
+  }
+  &__section2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @include for-tablet-portrait-up() {
+      flex-direction: column-reverse;
+      justify-content: space-around;
+      align-items: flex-end;
+    }
+  }
+
+}
+
+.star {
+  margin: 2px;
+  font-size: 1rem;
+  @include for-tablet-portrait-up() {
+    margin: 5px;
+    font-size: 1.9rem;
+  }
+  &--grey {
+    color: $star-grey;
+  }
+}
+
+
+.host {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  &__name {
+    font-size: 0.9rem;
+    font-weight: $semibold;
+    @include for-tablet-portrait-up() {
+      font-size: 1.1rem;
+    }
+  }
+  &__picture {
+    width: 2rem;
+    border-radius: 50%;
+    @include for-tablet-portrait-up() {
+      width: 4rem;
+    }
+  }
+}
+
+@include for-tablet-portrait-up() {
+  .logement-dropdowns {
+    display: flex;
+    gap: 76px;
+    .dropdown__title, .dropdown__content {
+      font-size: 1.1rem;
+      line-height: 1.7rem;
+    }
+  }
+}
+
+
+// || Error 404 page
 
 .error {
   display: flex;
@@ -267,69 +411,5 @@ a {
     @include for-tablet-portrait-up {
       font-size: 1.15rem;
     }
-  }
-}
-
-.logement-title {
-  font-size: 1.1rem;
-  font-weight: $semibold;
-}
-
-.logement-location {
-  font-size: 0.9rem;
-  font-weight: $semibold;
-}
-
-.tag {
-  font-size: 0.8rem;
-  display: inline-block;
-  background: $kasa-red;
-  color: white;
-  border-radius: 5px;
-  padding: 5px 30px;
-  margin: 0 10px 10px 0;
-}
-
-.logement-rating-host {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.grey {
-  color: $star-grey;
-}
-
-.host {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  &__name {
-    font-size: 0.9rem;
-    font-weight: $semibold;
-  }
-  &__picture {
-    width: 2rem;
-    border-radius: 50%;
-  }
-}
-
-.carrousel {
-  position: relative;
-  height: 255px;
-  border-radius: 10px;
-  overflow: hidden;
-  &__image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  &__controls {
-    position: absolute;
-    top: 50%;
-    transform: translate(0, -50%);
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
   }
 }

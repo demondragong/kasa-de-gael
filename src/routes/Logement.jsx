@@ -26,20 +26,26 @@ export default function Logement() {
   return logement ? (
     <main className="main">
       <Carrousel pictures={logement.pictures} />
-      <h1 className="logement-title">{logement.title}</h1>
-      <p className="logement-location">{logement.location}</p>
-      {logement.tags.map((tag, i) => (
-        <Tag name={tag} key={i} />
-      ))}
-      <div className="logement-rating-host">
-        <StarRating score={parseInt(logement.rating)} />
-        <HostProfile
-          name={logement.host.name}
-          picture={logement.host.picture}
-        />
+      <div className="logement-info">
+        <div className="logement-info__section1">
+          <h1 className="logement-title">{logement.title}</h1>
+          <p className="logement-location">{logement.location}</p>
+          {logement.tags.map((tag, i) => (
+            <Tag name={tag} key={i} />
+          ))}
+        </div>
+        <div className="logement-info__section2">
+          <StarRating score={parseInt(logement.rating)} />
+          <HostProfile
+            name={logement.host.name}
+            picture={logement.host.picture}
+          />
+        </div>
       </div>
-      <Dropdown title="Description" content={logement.description} />
-      <Dropdown title="Équipements" content={equipmentList} />
+      <div className="logement-dropdowns">
+        <Dropdown title="Description" content={logement.description} />
+        <Dropdown title="Équipements" content={equipmentList} />
+      </div>
     </main>
   ) : (
     <Navigate to="/error" replace={true} />
