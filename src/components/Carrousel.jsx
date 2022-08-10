@@ -5,8 +5,10 @@ import { useState } from "react";
 export default function Carrousel({ pictures }) {
   const length = pictures.length;
 
+  // carrousel index is the index the use has naviagated to using the right and left arrows
   const [carrouselIndex, setCarrouselIndex] = useState(0);
 
+  // array index is the position of the picture that the carrousel should display
   let arrayIndex = ((carrouselIndex % length) + length) % length;
 
   return (
