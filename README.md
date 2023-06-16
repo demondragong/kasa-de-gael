@@ -3,7 +3,7 @@
 
 Training project to play around with React and React router.
 
-![Kasa logo](src/assets/LOGO.svg)
+![Kasa logo](src/assets/logo.svg)
 
 
 ### To run the project
